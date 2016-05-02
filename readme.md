@@ -13,9 +13,9 @@ En este proyecto, hasta la fecha se cuenta con un equipo constituido por:
 [Marshallejrt (Efrain Rodriguez)](https://github.com/marshalejrt) - Desarrollador
 
 
-## Security Vulnerabilities
+## Contacto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Si tienes alguna sugerencia o contribución o requieres alguna ayuda, contactanos a travez del correo info@indexsoftware.com.ve. All security vulnerabilities will be promptly addressed.
 
 ## Licencia
 
