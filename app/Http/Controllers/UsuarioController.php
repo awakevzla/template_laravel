@@ -32,9 +32,6 @@ class UsuarioController extends Controller
         }
         return redirect()->back();
     }
-    public function getInicio(){
-        return view('inicio');
-    }
     public function salir(){
         Auth::logout();
         return redirect()->route('login');

@@ -22,7 +22,7 @@ Route::post('/ingresar', [
 ]);
 
 Route::get('/inicio', [
-    'uses' => 'UsuarioController@getInicio',
+    'uses' => 'PostController@getInicio',
     'as' => 'inicio',
     'middleware' => 'auth',
 ]);
@@ -40,6 +40,11 @@ Route::get('/', [
 Route::post('/crearpost',[
     'uses' => 'PostController@postCrearPost',
     'as' => 'crear_post',
+    'middleware' => 'auth',
+]);
+Route::get('/eliminarPost/{id}',[
+    'uses' => 'PostController@getEliminarPost',
+    'as' => 'eliminarPost',
     'middleware' => 'auth',
 ]);
 
