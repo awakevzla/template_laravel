@@ -37,6 +37,12 @@ Route::get('/', [
     'as' => 'login',
 ]);
 
+Route::post('/crearpost',[
+    'uses' => 'PostController@postCrearPost',
+    'as' => 'crear_post',
+    'middleware' => 'auth',
+]);
+
 Route::group(['middleware'=>['web']], function() {
 
 });
