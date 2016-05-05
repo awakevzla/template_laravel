@@ -11,7 +11,8 @@ Se toma como meta la creación de una Red Social con alguna de las virtudes que 
 
 En este proyecto, hasta la fecha se cuenta con un equipo constituido por:<br/>
 [Awake (Pedro Lugo)](https://github.com/awakevzla) - Desarrollador<br/>
-[Marshallejrt (Efrain Rodriguez)](https://github.com/marshalejrt) - Desarrollador
+[Marshallejrt (Efrain Rodriguez)](https://github.com/marshalejrt) - Desarrollador<br/>
+[Vamzfe (Victor Moreno)](https://github.com/vamzfe) - Desarrollador
 
 
 ## Contacto
