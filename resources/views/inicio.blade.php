@@ -45,18 +45,46 @@ Blade::extend(function($value) {
                 <article class="post">
                     <p>{{$post->body}}</p>
                     <div class="info">
-                        Compartida por {{$post->usuario->usuario}} / {{$post->created_at->format('d-m-Y H:i:s')}}
+                        Compartida por {{$post->usuario->usuario}} / {{$post->updated_at->format('d-m-Y H:i:s')}}
                     </div>
                     <div class="interaccion">
-                        <a href="#"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" data-like="true" data-id="{{$post->id}}" class="like"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></a>
+                        <a href="#" data-like="false" data-id="{{$post->id}}" class="like"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></a>
                         @if(Auth::user()==$post->usuario)
                         <a href="{{route('eliminarPost', ['id'=>$post->id])}}"><i class="fa fa-times fa-lg" aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
+                        <a class="editar" data-id="{{$post->id}}" data-body="{{$post->body}}" href="#"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
                         @endif
                     </div>
                 </article>
             @endforeach
         </div>
     </section>
+    <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <textarea name="body.edit" id="body-edit" rows="5" class="form-control"></textarea>
+                        <input type="hidden" id="_token" value="{{csrf_token()}}">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button id="guardar" type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+@endsection
+@section('script')
+    <script>
+        var urlEditar= '{{route('editarPost')}}';
+        var urlLike = '{{route('like')}}';
+        var token='{{csrf_token()}}';
+    </script>
+    <script src="{{URL::to('src/js/app.js')}}"></script>
 @endsection

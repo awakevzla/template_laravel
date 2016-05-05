@@ -8,17 +8,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Inicio</a>
+            <a class="navbar-brand" href="{{route('inicio')}}">Inicio</a>
         </div>
         @if(Auth::check())
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}} <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="salir">Salir</a></li>
-                </ul>
-            </li>
-        </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('perfil')}}"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
+                        <li><a href="salir"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a></li>
+                    </ul>
+                </li>
+            </ul>
         @endif
     </div><!-- /.container-fluid -->
 </nav>

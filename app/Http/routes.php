@@ -48,6 +48,31 @@ Route::get('/eliminarPost/{id}',[
     'middleware' => 'auth',
 ]);
 
-Route::group(['middleware'=>['web']], function() {
+Route::post('/editarPost', [
+    'uses'=>'PostController@postEditarPost',
+    'as' => 'editarPost',
+    'middleware' => 'auth'
+]);
 
-});
+Route::get('/perfil', [
+    'uses' => 'UsuarioController@getPerfil',
+    'as' => 'perfil',
+    'middleware' => 'auth'
+]);
+Route::post('/guardar_perfil', [
+    'uses' => 'UsuarioController@postGuardarPerfil',
+    'as' => 'guardar_perfil',
+    'middleware' => 'auth'
+]);
+
+Route::post('/like', [
+    'uses' => 'LikeController@postLike',
+    'as' => 'like',
+    'middleware' => 'auth'
+]);
+
+Route::get('/imagen_usuario/{filename}', [
+    'uses' => 'UsuarioController@getImagenUsuario',
+    'as' => 'imagen_usuario',
+    'middleware' => 'auth'
+]);

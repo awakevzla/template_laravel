@@ -38,4 +38,16 @@ class PostController extends Controller
         $post->delete();
         return redirect()->route('inicio')->with(['message'=>'Post Eliminado!', 'type'=>'success']);
     }
+    public function postEditarPost(Request $request){
+        $this->validate($request,[
+            'body'=>'required'
+        ]);
+        $post=Post::find($request["id"]);
+        if (Auth::user()!=$post->usuario){
+            return redirect()->back()->with(['message'=>'No se puede modificar un post que no es propio!', 'type'=>'danger']);
+        }
+        $post->body=$request["body"];
+        $post->update();
+        return response()->json(['msj'=>$post->body]);
+    }
 }
